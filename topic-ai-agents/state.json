@@ -1,0 +1,10 @@
+{
+  "round": 1,
+  "history": [
+    "round 1: graph_png -> PASS",
+    "round 1: retrieve_wiki -> PASS",
+    "round 1: coverage_gate -> PASS",
+    "round 1: evidence_cards -> PASS",
+    "round 1: outline_gate -> PASS"
+  ]
+}

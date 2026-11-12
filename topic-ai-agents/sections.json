@@ -1,0 +1,16 @@
+{
+  "_comment": "Planned teaching sections (human-authored plan). retrieve_wiki matches each keyword case-insensitively against wiki pages.",
+  "sections": [
+    {"id": "sec-01", "title": "什麼是 agent", "keywords": ["agent", "代理"]},
+    {"id": "sec-02", "title": "LLM 是核心，加上增強能力", "keywords": ["augmented", "增強型", "brain", "大腦"]},
+    {"id": "sec-03", "title": "workflow 與 agent 的差異", "keywords": ["workflow"]},
+    {"id": "sec-04", "title": "工具使用（tool use）", "keywords": ["tool use", "tool call", "工具使用"]},
+    {"id": "sec-05", "title": "工具使用循環", "keywords": ["stop_reason", "loop", "循環", "tool_result"]},
+    {"id": "sec-06", "title": "規劃（planning）", "keywords": ["planning", "規劃", "subgoal"]},
+    {"id": "sec-07", "title": "記憶（memory）", "keywords": ["memory", "記憶", "vector", "context window"]},
+    {"id": "sec-08", "title": "ReAct：推理與行動交錯", "keywords": ["react", "interleav", "交錯"]},
+    {"id": "sec-09", "title": "範例：行事曆 agent", "keywords": ["calendar", "行事曆"]},
+    {"id": "sec-10", "title": "常見誤解", "keywords": ["誤解", "misconception"]},
+    {"id": "sec-11", "title": "錯誤會累積", "keywords": ["compound", "累積"]}
+  ]
+}

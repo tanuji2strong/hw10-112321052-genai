@@ -1,0 +1,13 @@
+coverage_gate (round 1): need >= 3 relevant pages per section
+  PASS  sec-01  17 page(s)  什麼是 agent
+  PASS  sec-02   8 page(s)  LLM 是核心，加上增強能力
+  PASS  sec-03   5 page(s)  workflow 與 agent 的差異
+  PASS  sec-04  11 page(s)  工具使用（tool use）
+  PASS  sec-05   7 page(s)  工具使用循環
+  PASS  sec-06  11 page(s)  規劃（planning）
+  PASS  sec-07   7 page(s)  記憶（memory）
+  PASS  sec-08   4 page(s)  ReAct：推理與行動交錯
+  PASS  sec-09   3 page(s)  範例：行事曆 agent
+  PASS  sec-10   7 page(s)  常見誤解
+  PASS  sec-11   5 page(s)  錯誤會累積
+result: PASS (11/11 sections covered)

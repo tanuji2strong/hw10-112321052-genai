@@ -1,0 +1,18 @@
+outline_gate
+slide count: 14 (need 8..15) PASS
+slide numbers sequential: PASS
+  PASS  slide 01 [cover] AI Agents：給零基礎初學者的入門課  cards: c01-what-is-an-agent
+  PASS  slide 02 [hook] 從聊天到會做事：為什麼需要 agent？  cards: s06, c01-what-is-an-agent
+  PASS  slide 03 [concept] 什麼是 agent？  cards: c01-what-is-an-agent, s01
+  PASS  slide 04 [concept] LLM 是核心，加上工具、檢索與記憶  cards: c02-augmented-llm, s03
+  PASS  slide 05 [concept] workflow 與 agent 的差別  cards: c03-workflow-vs-agent
+  PASS  slide 06 [concept] 工具使用：模型請求，程式執行  cards: c04-tool-use-loop, s02
+  PASS  slide 07 [concept] 工具使用循環：一來一往直到完成  cards: c04-tool-use-loop, s05
+  PASS  slide 08 [example] 範例：行事曆 agent 怎麼工作  cards: calendar-agent-loop, s07
+  PASS  slide 09 [concept] 規劃：拆解任務，並從錯誤中反思  cards: c05-planning, s03
+  PASS  slide 10 [concept] 記憶：短期記憶與長期記憶  cards: c06-memory
+  PASS  slide 11 [concept] ReAct：推理與行動交錯  cards: c07-react, s04
+  PASS  slide 12 [misconception] 誤解一與二：agent 是完全自主的？錯誤會累積  cards: m01-agents-are-fully-autonomous, m02-errors-compound
+  PASS  slide 13 [misconception] 誤解三：agent 越複雜越好？  cards: m03-more-complexity-is-better, s01
+  PASS  slide 14 [summary] 總結與下一步  cards: glossary, c01-what-is-an-agent
+result: PASS

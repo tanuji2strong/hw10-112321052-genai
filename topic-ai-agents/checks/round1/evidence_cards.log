@@ -1,0 +1,22 @@
+evidence_cards
+cards written: 19
+  c01-what-is-an-agent: quotes=4 claims=8  <- wiki/concepts/c01-what-is-an-agent.md
+  c02-augmented-llm: quotes=2 claims=4  <- wiki/concepts/c02-augmented-llm.md
+  c03-workflow-vs-agent: quotes=3 claims=6  <- wiki/concepts/c03-workflow-vs-agent.md
+  c04-tool-use-loop: quotes=8 claims=9  <- wiki/concepts/c04-tool-use-loop.md
+  c05-planning: quotes=4 claims=6  <- wiki/concepts/c05-planning.md
+  c06-memory: quotes=4 claims=5  <- wiki/concepts/c06-memory.md
+  c07-react: quotes=5 claims=6  <- wiki/concepts/c07-react.md
+  calendar-agent-loop: quotes=7 claims=4  <- wiki/examples/calendar-agent-loop.md
+  glossary: quotes=0 claims=15  <- wiki/glossary.md
+  m01-agents-are-fully-autonomous: quotes=2 claims=4  <- wiki/misconceptions/m01-agents-are-fully-autonomous.md
+  m02-errors-compound: quotes=2 claims=4  <- wiki/misconceptions/m02-errors-compound.md
+  m03-more-complexity-is-better: quotes=2 claims=3  <- wiki/misconceptions/m03-more-complexity-is-better.md
+  s01: quotes=6 claims=13  <- wiki/sources/s01.md
+  s02: quotes=5 claims=10  <- wiki/sources/s02.md
+  s03: quotes=11 claims=13  <- wiki/sources/s03.md
+  s04: quotes=4 claims=10  <- wiki/sources/s04.md
+  s05: quotes=6 claims=10  <- wiki/sources/s05.md
+  s06: quotes=6 claims=15  <- wiki/sources/s06.md
+  s07: quotes=6 claims=11  <- wiki/sources/s07.md
+self-check problems: 0

@@ -1,0 +1,47 @@
+text_gate: input=output/presentation.html slides=13 bullets=34
+  FAIL slide 02 bullet 001: not a complete sentence (no 。！？ and not a short phrase)
+       text: 完全沒有。 AI Agent 的底層仍然是大型語言模型 (LLM)，它本質上是一個超級強大的「文字接龍」機器。它的思考 (Reason) 只是在預測接下來應
+  FAIL slide 02 bullet 002: not a complete sentence (no 。！？ and not a short phrase)
+       text: 它沒有意識，只是模式匹配＋工具
+  FAIL slide 02 bullet 003: not a complete sentence (no 。！？ and not a short phrase)
+       text: AI Agent（人工智慧代理） 是比 Chatbot 更進階的形態：如果說 Chatbot 是一個「很會聊天的百科全書」，那麼 AI Agent 就是一位
+  FAIL slide 03 bullet 004: [補充] / outside-source tag
+       text: Token（詞元） 是 LLM 閱讀與產生文字的基本單位。模型不是以「字」或「詞」處理文字，而是把文字切成 token 再運算。
+  FAIL slide 03 bullet 005: leading list marker; not a complete sentence (no 。！？ and not a short phrase); [補充] / outside-source tag
+       text: - 英文：一個 token 大約等於 3/4 個單詞。例如 "intelligence" 可能被切成 "in" +
+  FAIL slide 03 bullet 006: leading list marker; [補充] / outside-source tag
+       text: - 中文：一個中文字通常約等於 1～2 個 token。
+  FAIL slide 04 bullet 007: not a complete sentence (no 。！？ and not a short phrase); simplified characters: 摊开
+       text: 桌面比喻：越大同時能摊开的資料越多
+  FAIL slide 04 bullet 008: not a complete sentence (no 。！？ and not a short phrase)
+       text: 當你在跟 Agent 對話時，系統會把你剛剛說過的每一句話都記錄下來，並在每一次你發送新訊息時，把「過去的對話紀錄 + 你的新問題」整包丟給 LLM 重新閱
+  FAIL slide 05 bullet 011: outline/placeholder wording
+       text: 用買咖啡例子走一遍
+  FAIL slide 06 bullet 013: simplified characters: 台
+       text: 工具使用 (Tool Use) 是為了突破 LLM 先天限制，給「被關在房間裡的智者」一些工具（例如：一支電話、一台電腦）的做法。
+  FAIL slide 06 bullet 015: simplified characters: 台
+       text: 1. 知識截止日 (Knowledge Cutoff)：LLM 的知識停留在它被訓練的那一天。問它「今天台北的股價指數是多少？」，沒有聯網能力的 LLM 絕對無法正確回答。
+  FAIL slide 07 bullet 016: not a complete sentence (no 。！？ and not a short phrase)
+       text: Chain-of-Thought：一步一步想
+  FAIL slide 07 bullet 017: not a complete sentence (no 。！？ and not a short phrase)
+       text: Tree-of-Thoughts：多條路探索＋反思
+  FAIL slide 08 bullet 019: not a complete sentence (no 。！？ and not a short phrase)
+       text: 2. 生成 (Generation)：回覆「沒問題！我來幫小白（狗狗）找一間寵物蛋糕店，而且會特別交代店家絕對不能沾到花生！」
+  FAIL slide 08 bullet 020: not a complete sentence (no 。！？ and not a short phrase)
+       text: 狗狗生日蛋糕：失敗後如何修正
+  FAIL slide 10 bullet 024: not a complete sentence (no 。！？ and not a short phrase); [補充] / outside-source tag
+       text: 多代理系統 (Multi-Agent System) 是指讓多個各有分工的 AI Agent 協同工作完成一個大任務的架構。每個 agent 有自己的角色、
+  FAIL slide 10 bullet 025: not a complete sentence (no 。！？ and not a short phrase); [補充] / outside-source tag
+       text: 想像一家小型廣告公司接到「幫客戶做產品發表會」的委託 ：
+  FAIL slide 10 bullet 026: leading list marker; not a complete sentence (no 。！？ and not a short phrase); file or wiki path in text; no source tag
+       text: - 企劃 Agent：把大目標拆成子任務 → 對應 concepts/planning 的拆解能力
+  FAIL slide 11 bullet 029: not a complete sentence (no 。！？ and not a short phrase)
+       text: 全自主＝迷思：錯誤會複利放大
+  FAIL slide 12 bullet 031: not a complete sentence (no 。！？ and not a short phrase)
+       text: HITL = 關鍵步驟踩煞車
+  FAIL slide 13 bullet 033: outline/placeholder wording; no source tag
+       text: 一句話複習四大元件
+  FAIL slide 13 bullet 034: no source tag
+       text: 下一步學習建議
+result: FAIL (32 problem(s))
+route: redo draft only for slides 02, 03, 04, 05, 06, 07, 08, 10, 11, 12, 13

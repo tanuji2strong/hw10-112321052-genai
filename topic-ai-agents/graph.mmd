@@ -1,0 +1,26 @@
+%% Graph for topic-ai-agents: nodes, gates, and routing edges.
+%% Node names match scripts/pipeline/*.py and the runner (scripts/pipeline/run.py).
+flowchart TD
+    A[retrieve_wiki<br/>sources.md] --> B{coverage_gate<br/>script: each section ≥3 pages}
+    B -- fail: stop and report --> STOP((stop: report to user))
+    B -- pass --> C[evidence_cards<br/>one card per wiki page]
+    C --> D[outline<br/>8 to 15 slides, cards per slide]
+    D --> E{outline_gate<br/>script: count 8-15, every slide has cards}
+    E -- fail --> D
+    E -- pass --> F{{human checkpoint<br/>user approves outline}}
+    F -- changes requested --> D
+    F -- approved --> G[draft<br/>slide text from mapped cards only]
+    G --> H{text_gate<br/>script: complete sentences, no placeholders, s2twp, source tags}
+    H -- fail on slide k --> G
+    H -- pass --> I{faithfulness_gate<br/>script: quotes verbatim, numbers in cited page}
+    I -- fail on slide k --> G
+    I -- pass --> J[render<br/>deck.html single file]
+    J --> K{render_gate<br/>script: Playwright screenshots, overflow, links, 8-15 slides}
+    K -- overflow on slide k --> G
+    K -- pass --> L{ai_review<br/>fresh subagent: deck.html + cited wiki pages only}
+    L -- missing topic --> A
+    L -- wrong card content --> C
+    L -- faithfulness issue on slide k --> G
+    L -- pass --> M[deliver<br/>output/presentation.html + report.md]
+
+    G -. "max 2 rounds per slide" .-> G
