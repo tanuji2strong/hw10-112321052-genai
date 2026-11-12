@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Agents 入門教學簡報</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans TC','PingFang TC',sans-serif;background:#f7f9fc;color:#1e293b}
+.slide{display:none;width:100vw;min-height:100vh;padding:6vh 9vw;background:#fff;box-shadow:0 0 30px rgba(0,0,0,.06);position:relative}
+.slide.active{display:flex;flex-direction:column;justify-content:center;gap:3vh}
+h1{font-size:3.2rem;color:#0f4c81}h2{font-size:2.3rem;color:#0f4c81;margin-top:1vh}
+.cover{align-items:center;text-align:center;background:linear-gradient(135deg,#eaf3fb,#f7f9fc)}
+.sub{font-size:1.5rem;color:#475569}.small{font-size:1.1rem}
+ul{list-style:none;font-size:1.45rem;line-height:1.9}
+li{margin-bottom:2.2vh;padding-left:1.6em;position:relative}
+li::before{content:'●';position:absolute;left:0;font-size:.7em;top:.45em}
+.accent-blue li::before{color:#2f6fb2}.accent-green li::before{color:#2e9e6b}.accent-red li::before{color:#d0554a}
+.summary li::before{color:#8a5cc9}
+.src{font-size:.78rem;color:#94a3b8;background:#f1f5f9;padding:.15em .6em;border-radius:1em;white-space:nowrap}
+.badge{position:absolute;top:4vh;right:6vw;font-size:.95rem;padding:.4em 1.2em;border-radius:2em;background:#eef4fa;color:#0f4c81}
+.pagenum{position:absolute;bottom:3vh;right:5vw;color:#cbd5e1;font-size:1rem}
+.nav{position:fixed;bottom:3vh;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:9}
+.nav button{font-size:1.1rem;padding:.5em 1.4em;border:none;border-radius:2em;background:#0f4c81;color:#fff;cursor:pointer}
+.nav button:hover{background:#2f6fb2}
+</style>
+</head>
+<body>
+<section class="slide cover">
+  <h1>AI Agents：給零基礎初學者的入門課</h1>
+  <p class="sub">副標：從聊天機器人到會自己做事的 AI</p>
+  <p class="sub small">素材來源：5 篇原始文件 + 26 頁 Wiki</p>
+</section>
+<section class="slide accent-blue">
+  <span class="badge">概念</span>
+  <h2>什麼是 AI Agent？</h2>
+  <ul>
+      <li>完全沒有。 AI Agent 的底層仍然是大型語言模型 (LLM)，它本質上是一個超級強大的「文字接龍」機器。它的思考 (Reason) 只是在預測接下來應 <span class="src">[來源: 05_challenges.md, 「初學者常見的兩大誤解」1]</span></li>
+      <li>它沒有意識，只是模式匹配＋工具 <span class="src">[來源: wiki 綜合整理]</span></li>
+      <li>AI Agent（人工智慧代理） 是比 Chatbot 更進階的形態：如果說 Chatbot 是一個「很會聊天的百科全書」，那麼 AI Agent 就是一位 <span class="src">[來源: 01_intro.md, 「什麼是 AI Agent？」]</span></li>
+  </ul>
+  <div class="pagenum">2/13</div>
+</section>
+<section class="slide accent-blue">
+  <span class="badge">概念</span>
+  <h2>先懂 Token：AI 的計費單位</h2>
+  <ul>
+      <li>Token（詞元） 是 LLM 閱讀與產生文字的基本單位。模型不是以「字」或「詞」處理文字，而是把文字切成 token 再運算。 <span class="src">[補充: 非原始資料]</span></li>
+      <li>- 英文：一個 token 大約等於 3/4 個單詞。例如 &quot;intelligence&quot; 可能被切成 &quot;in&quot; + <span class="src">[補充: 非原始資料]</span></li>
+      <li>- 中文：一個中文字通常約等於 1～2 個 token。 <span class="src">[補充: 非原始資料]</span></li>
+  </ul>
+  <div class="pagenum">3/13</div>
+</section>
+<section class="slide accent-green">
+  <span class="badge">原理</span>
+  <h2>Context Window：AI 的工作桌面</h2>
+  <ul>
+      <li>桌面比喻：越大同時能摊开的資料越多 <span class="src">[來源: wiki 綜合整理]</span></li>
+      <li>當你在跟 Agent 對話時，系統會把你剛剛說過的每一句話都記錄下來，並在每一次你發送新訊息時，把「過去的對話紀錄 + 你的新問題」整包丟給 LLM 重新閱 <span class="src">[來源: 04_memory.md, 「短期記憶」運作原理]</span></li>
+      <li>短期記憶就像是大腦中的「工作記憶」或電腦的「記憶體 (RAM)」。 <span class="src">[來源: 04_memory.md, 「短期記憶」]</span></li>
+  </ul>
+  <div class="pagenum">4/13</div>
+</section>
+<section class="slide accent-green">
+  <span class="badge">原理</span>
+  <h2>ReAct 迴圈：Agent 的心跳</h2>
+  <ul>
+      <li>1. 感知與觀察 (Observation)：Agent 先了解目前的環境與狀態。例如收到使用者的指令、或是看到上一個步驟執行失敗的錯誤訊息。 <span class="src">[來源: 01_intro.md, 「核心運作迴圈」步驟 1]</span></li>
+      <li>用買咖啡例子走一遍 <span class="src">[來源: wiki 綜合整理]</span></li>
+      <li>AI Agent 之所以具備行動力，是因為擁有核心運作機制。業界最著名的一種設計框架稱為 ReAct (Reason + Act)，也就是「推理」加上「行動」。 <span class="src">[來源: 01_intro.md, 「核心運作迴圈：ReAct 框架」]</span></li>
+  </ul>
+  <div class="pagenum">5/13</div>
+</section>
+<section class="slide accent-blue">
+  <span class="badge">概念</span>
+  <h2>Tool Use：讓 AI 動手做事</h2>
+  <ul>
+      <li>工具使用 (Tool Use) 是為了突破 LLM 先天限制，給「被關在房間裡的智者」一些工具（例如：一支電話、一台電腦）的做法。 <span class="src">[來源: 02_tools.md, 「為什麼 LLM 需要工具？」]</span></li>
+      <li>透過 Function Calling，AI Agent 長出了手和腳，擁有了與真實世界互動的能力。 <span class="src">[來源: 02_tools.md, 結尾段落]</span></li>
+      <li>1. 知識截止日 (Knowledge Cutoff)：LLM 的知識停留在它被訓練的那一天。問它「今天台北的股價指數是多少？」，沒有聯網能力的 LLM 絕對無法正確回答。 <span class="src">[來源: 02_tools.md, 「為什麼 LLM 需要工具？」限制 1]</span></li>
+  </ul>
+  <div class="pagenum">6/13</div>
+</section>
+<section class="slide accent-green">
+  <span class="badge">原理</span>
+  <h2>Planning：把大任務拆小</h2>
+  <ul>
+      <li>Chain-of-Thought：一步一步想 <span class="src">[來源: wiki 綜合整理]</span></li>
+      <li>Tree-of-Thoughts：多條路探索＋反思 <span class="src">[來源: wiki 綜合整理]</span></li>
+      <li>京都四日遊規劃實例 <span class="src">[來源: wiki 綜合整理]</span></li>
+  </ul>
+  <div class="pagenum">7/13</div>
+</section>
+<section class="slide accent-green">
+  <span class="badge">原理</span>
+  <h2>Reflection：自我檢討的魔力</h2>
+  <ul>
+      <li>2. 生成 (Generation)：回覆「沒問題！我來幫小白（狗狗）找一間寵物蛋糕店，而且會特別交代店家絕對不能沾到花生！」 <span class="src">[來源: 04_memory.md, 「長期記憶」提取記憶]</span></li>
+      <li>狗狗生日蛋糕：失敗後如何修正 <span class="src">[來源: wiki 綜合整理]</span></li>
+      <li>人類在做事遇到挫折時會停下來檢討，AI Agent 也具備這樣的能力，稱為 反思 (Reflection) 或自我修正。 <span class="src">[來源: 03_planning.md, 「卡關時的『反思』機制」]</span></li>
+  </ul>
+  <div class="pagenum">8/13</div>
+</section>
+<section class="slide accent-blue">
+  <span class="badge">概念</span>
+  <h2>Memory 與 RAG：Agent 的長期記憶</h2>
+  <ul>
+      <li>為了提供連貫、個人化的服務，Agent 必須擁有 記憶機制 (Memory)，通常分為「短期記憶」與「長期記憶」。 <span class="src">[來源: 04_memory.md, 開頭段落]</span></li>
+      <li>想像你聘請了一位非常聰明的新助理，但他患有嚴重的失憶症，只要你離開辦公室五分鐘，他就會忘記你剛才交代過的所有事情——這樣的助理顯然不合格。AI Agent 也是一樣。 <span class="src">[來源: 04_memory.md, 開頭段落]</span></li>
+  </ul>
+  <div class="pagenum">9/13</div>
+</section>
+<section class="slide accent-blue">
+  <span class="badge">概念</span>
+  <h2>Multi-Agent：一群 Agent 協作</h2>
+  <ul>
+      <li>多代理系統 (Multi-Agent System) 是指讓多個各有分工的 AI Agent 協同工作完成一個大任務的架構。每個 agent 有自己的角色、 <span class="src">[補充: 非原始資料]</span></li>
+      <li>想像一家小型廣告公司接到「幫客戶做產品發表會」的委託 ： <span class="src">[補充: 非原始資料]</span></li>
+      <li>- 企劃 Agent：把大目標拆成子任務 → 對應 concepts/planning 的拆解能力<span class="src"></span></li>
+  </ul>
+  <div class="pagenum">10/13</div>
+</section>
+<section class="slide accent-red">
+  <span class="badge">誤解破解</span>
+  <h2>常見誤解大破解</h2>
+  <ul>
+      <li>1. 知識截止日 (Knowledge Cutoff)：LLM 的知識停留在它被訓練的那一天，沒有聯網能力的 LLM 絕對無法正確回答即時問題。 <span class="src">[來源: 02_tools.md, 「為什麼 LLM 需要工具？」限制 1]</span></li>
+      <li>這是 LLM 最著名的問題。有時候，當 Agent 找不到真實資料，或者推理過程出了差錯，它會 「一本正經地胡說八道」。 <span class="src">[來源: 05_challenges.md, 「核心挑戰」1. 幻覺]</span></li>
+      <li>全自主＝迷思：錯誤會複利放大 <span class="src">[來源: wiki 綜合整理]</span></li>
+  </ul>
+  <div class="pagenum">11/13</div>
+</section>
+<section class="slide accent-green">
+  <span class="badge">原理</span>
+  <h2>挑戰與安全：Human-in-the-Loop</h2>
+  <ul>
+      <li>為什麼重要操作要人確認 <span class="src">[來源: wiki 綜合整理]</span></li>
+      <li>HITL = 關鍵步驟踩煞車 <span class="src">[來源: wiki 綜合整理]</span></li>
+      <li>為了解決幻覺與錯誤累積等問題，目前業界在設計 Agent 系統時，都會強調 Human-in-the-loop (人機協作 / 人類在迴圈中) 的概念。 <span class="src">[來源: 05_challenges.md, 「核心挑戰」3. HITL]</span></li>
+  </ul>
+  <div class="pagenum">12/13</div>
+</section>
+<section class="slide summary">
+  <h2>總結：Agent = LLM 大腦 + 工具手脚 + 記憶 + 規劃</h2>
+  <ul>
+      <li>一句話複習四大元件<span class="src"></span></li>
+      <li>下一步學習建議<span class="src"></span></li>
+  </ul>
+  <div class="pagenum">13/13</div>
+</section>
+<div class="nav"><button id="prev">← 上一頁</button><button id="next">下一頁 →</button></div>
+<script>
+let cur=0;const slides=document.querySelectorAll('.slide');
+function show(i){cur=(i+slides.length)%slides.length; slides.forEach((s,j)=>s.classList.toggle('active',j===cur));}
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{
+ if(e.key==='ArrowRight'||e.key===' ')show(cur+1);
+ if(e.key==='ArrowLeft')show(cur-1);});
+show(0);
+</script>
+</body>
+</html>
