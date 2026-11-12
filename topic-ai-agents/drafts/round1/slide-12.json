@@ -1,0 +1,28 @@
+{
+  "n": 12,
+  "kind": "misconception",
+  "kind_label": "誤解",
+  "title": "誤解一與二：完全自主？錯誤會累積？",
+  "bullets": [
+    {
+      "text": "誤解一：agent 是完全自主、不需要人參與的。其實 agent 常從人的指令或討論開始。",
+      "cite": "wiki/misconceptions/m01-agents-are-fully-autonomous.md",
+      "quote": "Agents begin their work with either a command from, or interactive discussion with, the human user."
+    },
+    {
+      "text": "人可以在規劃、驗證與執行的任何階段介入，以降低風險。",
+      "cite": "wiki/misconceptions/m01-agents-are-fully-autonomous.md",
+      "quote": "So far, we’ve assumed that the agent automates all three stages: generating plans, validating plans, and executing plans. In reality, humans can be involved at any stage to aid with the process and mitigate risks."
+    },
+    {
+      "text": "誤解二：每一步都對，最後結果就一定對。步驟越多，錯誤越會累積。",
+      "cite": "wiki/misconceptions/m02-errors-compound.md",
+      "quote": "Compound mistakes: an agent often needs to perform multiple steps to accomplish a task, and the overall accuracy decreases as the number of steps increases."
+    },
+    {
+      "text": "每一步 95% 的準確率，十步後整體會降到 60%。",
+      "cite": "wiki/misconceptions/m02-errors-compound.md",
+      "quote": "If the model’s accuracy is 95% per step, over 10 steps, the accuracy will drop to 60%, and over 100 steps, the accuracy will be only 0.6%."
+    }
+  ]
+}

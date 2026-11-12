@@ -1,0 +1,28 @@
+{
+  "n": 9,
+  "kind": "concept",
+  "kind_label": "概念",
+  "title": "規劃：拆解任務，並從錯誤中反思",
+  "bullets": [
+    {
+      "text": "規劃包含把大任務拆成子目標，讓複雜任務可以處理。",
+      "cite": "wiki/concepts/c05-planning.md",
+      "quote": "Subgoal and decomposition: The agent breaks down large tasks into smaller, manageable subgoals, enabling efficient handling of complex tasks."
+    },
+    {
+      "text": "反思讓 agent 從過去的行動中學習，改進之後的步驟。",
+      "cite": "wiki/concepts/c05-planning.md",
+      "quote": "Reflection and refinement: The agent can do self-criticism and self-reflection over past actions, learn from mistakes and refine them for future steps, thereby improving the quality of final results."
+    },
+    {
+      "text": "規劃與執行可以分開：先產生計畫，計畫通過驗證後才執行。",
+      "cite": "wiki/concepts/c05-planning.md",
+      "quote": "To avoid fruitless execution, planning should be decoupled from execution. You ask the agent to first generate a plan, and only after this plan is validated is it executed."
+    },
+    {
+      "text": "LLM 遇到非預期的錯誤時，不容易調整計畫。",
+      "cite": "wiki/concepts/c05-planning.md",
+      "quote": "LLMs struggle to adjust plans when faced with unexpected errors, making them less robust compared to humans who learn from trial and error."
+    }
+  ]
+}

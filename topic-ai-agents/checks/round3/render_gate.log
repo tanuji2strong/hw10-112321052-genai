@@ -1,0 +1,19 @@
+render_gate: deck=topic-ai-agents/deck.html viewport=1280x720
+slide count: 14 (need 8..15) PASS
+keyboard ArrowRight from slide 1 -> index 1 PASS
+  slide 01 overflow ok (scrollHeight 720 / clientHeight 720) AI Agents：給零基礎初學者的入門課
+  slide 02 overflow ok (scrollHeight 720 / clientHeight 720) 從聊天到會做事：為什麼需要 agent？
+  slide 03 overflow ok (scrollHeight 720 / clientHeight 720) 什麼是 agent？
+  slide 04 overflow ok (scrollHeight 720 / clientHeight 720) LLM 是核心，再加上三個元件
+  slide 05 overflow ok (scrollHeight 720 / clientHeight 720) workflow 與 agent 的差別
+  slide 06 overflow ok (scrollHeight 720 / clientHeight 720) 工具使用：模型請求，程式執行
+  slide 07 overflow ok (scrollHeight 720 / clientHeight 720) 工具使用循環：一來一往直到完成
+  slide 08 overflow ok (scrollHeight 720 / clientHeight 720) 範例：行事曆 agent 怎麼工作
+  slide 09 overflow ok (scrollHeight 720 / clientHeight 720) 規劃：拆解任務，並從錯誤中反思
+  slide 10 overflow ok (scrollHeight 720 / clientHeight 720) 記憶：短期記憶與長期記憶
+  slide 11 overflow ok (scrollHeight 720 / clientHeight 720) ReAct：推理與行動交錯
+  slide 12 overflow ok (scrollHeight 720 / clientHeight 720) 誤解一與二：完全自主？錯誤會累積？
+  slide 13 overflow ok (scrollHeight 720 / clientHeight 720) 誤解三：agent 越複雜越好？
+  slide 14 overflow ok (scrollHeight 720 / clientHeight 720) 總結與下一步
+links checked: 42; broken: 0
+result: PASS

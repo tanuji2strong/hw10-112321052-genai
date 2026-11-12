@@ -1,0 +1,23 @@
+{
+  "n": 4,
+  "kind": "concept",
+  "kind_label": "概念",
+  "title": "LLM 是核心，再加上三個元件",
+  "bullets": [
+    {
+      "text": "LLM 是 agent 的大腦，再加上規劃、記憶與工具使用三個元件。",
+      "cite": "wiki/sources/s03.md",
+      "quote": "In a LLM-powered autonomous agent system, LLM functions as the agent’s brain, complemented by several key components:"
+    },
+    {
+      "text": "三個元件中的工具使用，讓 agent 能呼叫外部 API 取得缺少的資訊。",
+      "cite": "wiki/sources/s03.md",
+      "quote": "The agent learns to call external APIs for extra information that is missing from the model weights"
+    },
+    {
+      "text": "這些能力合稱為增強型 LLM（augmented LLM），是 agent 系統的基本積木。",
+      "cite": "wiki/concepts/c02-augmented-llm.md",
+      "quote": "The basic building block of agentic systems is an LLM enhanced with augmentations such as retrieval, tools, and memory."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "n": 14,
+  "kind": "summary",
+  "kind_label": "總結",
+  "title": "總結與下一步",
+  "bullets": [
+    {
+      "text": "Agent：以 LLM 為核心，能自己決定流程、使用工具的系統。",
+      "cite": "wiki/glossary.md",
+      "quote": null
+    },
+    {
+      "text": "Tool use：模型要求工具，程式執行，結果送回模型。",
+      "cite": "wiki/glossary.md",
+      "quote": null
+    },
+    {
+      "text": "規劃、記憶與 ReAct 分別是拆解任務、保存與取回資訊，以及交錯推理與行動的方法。",
+      "cite": "wiki/glossary.md",
+      "quote": null
+    },
+    {
+      "text": "Workflow 與 agent 的差別，在於誰決定流程。",
+      "cite": "wiki/concepts/c03-workflow-vs-agent.md",
+      "quote": "Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks."
+    },
+    {
+      "text": "下一步：先用簡單的方法，只有不夠時才增加複雜度。",
+      "cite": "wiki/sources/s01.md",
+      "quote": "When building applications with LLMs, we recommend finding the simplest solution possible, and only increasing complexity when needed."
+    }
+  ]
+}

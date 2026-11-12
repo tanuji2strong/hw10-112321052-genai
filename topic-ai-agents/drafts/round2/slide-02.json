@@ -1,0 +1,23 @@
+{
+  "n": 2,
+  "kind": "hook",
+  "kind_label": "開場",
+  "title": "從聊天到會做事：為什麼需要 agent？",
+  "bullets": [
+    {
+      "text": "新的基礎模型能力，讓開發者有機會做出能替我們辦事的自主 agent。",
+      "cite": "wiki/sources/s06.md",
+      "quote": "These new capabilities make it finally possible to develop autonomous, intelligent agents to act as our assistants, coworkers, and coaches."
+    },
+    {
+      "text": "Agent 由 LLM 自己決定流程與工具使用，不只是回答問題。",
+      "cite": "wiki/concepts/c01-what-is-an-agent.md",
+      "quote": "Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks."
+    },
+    {
+      "text": "沒有外部工具也能算是 agent，但能力會受限。",
+      "cite": "wiki/concepts/c01-what-is-an-agent.md",
+      "quote": "A system doesn’t need access to external tools to be an agent. However, without external tools, the agent’s capabilities would be limited."
+    }
+  ]
+}

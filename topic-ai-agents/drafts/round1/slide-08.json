@@ -1,0 +1,33 @@
+{
+  "n": 8,
+  "kind": "example",
+  "kind_label": "範例",
+  "title": "範例：行事曆 agent 怎麼工作",
+  "bullets": [
+    {
+      "text": "使用者請求：安排一場 30 分鐘的同步會議，邀請 alice 與 bob。",
+      "cite": "wiki/examples/calendar-agent-loop.md",
+      "quote": "Schedule a 30-minute sync with alice@example.com and bob@example.com on Monday, March 30, 2026 at 10am."
+    },
+    {
+      "text": "模型判斷需要工具，回傳 stop_reason 為 tool_use 的回應。",
+      "cite": "wiki/examples/calendar-agent-loop.md",
+      "quote": "When Claude determines that a tool call is needed, the response comes back with"
+    },
+    {
+      "text": "在真實系統中，程式會呼叫行事曆 API 執行這一步。",
+      "cite": "wiki/examples/calendar-agent-loop.md",
+      "quote": "Run the tool. In a real system this would call your calendar API."
+    },
+    {
+      "text": "每週站會的例子需要多次建立行程，因此需要迴圈。",
+      "cite": "wiki/examples/calendar-agent-loop.md",
+      "quote": "Schedule a weekly team standup every Monday at 9am for the next 4 weeks, starting Monday, March 30, 2026. Invite the whole team: alice@example.com, bob@example.com, carol@example.com."
+    },
+    {
+      "text": "這是教學文件的示範，不是一次實際執行的紀錄。",
+      "cite": "wiki/examples/calendar-agent-loop.md",
+      "quote": null
+    }
+  ]
+}

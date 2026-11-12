@@ -1,0 +1,23 @@
+{
+  "n": 11,
+  "kind": "concept",
+  "kind_label": "概念",
+  "title": "ReAct：推理與行動交錯",
+  "bullets": [
+    {
+      "text": "ReAct 讓 LLM 以交錯的方式，同時產生推理與行動。",
+      "cite": "wiki/concepts/c07-react.md",
+      "quote": "we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner"
+    },
+    {
+      "text": "推理幫助模型規劃與追蹤，行動則讓它取得外部資訊。",
+      "cite": "wiki/concepts/c07-react.md",
+      "quote": "while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information."
+    },
+    {
+      "text": "這種交錯的做法已成為 agent 的常見模式。",
+      "cite": "wiki/concepts/c07-react.md",
+      "quote": "First proposed by ReAct (Yao et al., 2022), interleaving reasoning and action has become a common pattern for agents."
+    }
+  ]
+}

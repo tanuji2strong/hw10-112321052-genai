@@ -1,0 +1,23 @@
+{
+  "n": 6,
+  "kind": "concept",
+  "kind_label": "概念",
+  "title": "工具使用：模型請求，程式執行",
+  "bullets": [
+    {
+      "text": "模型自己不執行任何東西，它只發出結構化的請求。",
+      "cite": "wiki/concepts/c04-tool-use-loop.md",
+      "quote": "The model never runs anything on its own."
+    },
+    {
+      "text": "工具由應用程式（或 Anthropic 的伺服器）執行，結果再回到對話中。",
+      "cite": "wiki/concepts/c04-tool-use-loop.md",
+      "quote": "It emits a structured request, your code (or Anthropic’s servers) runs the operation, and the result flows back into the conversation."
+    },
+    {
+      "text": "Claude 決定何時、如何呼叫工具；你的程式只看得到工具定義與回傳結果。",
+      "cite": "wiki/concepts/c04-tool-use-loop.md",
+      "quote": "Claude never receives your implementation; it only receives the schema you provided and the result you returned."
+    }
+  ]
+}

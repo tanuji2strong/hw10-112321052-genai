@@ -1,0 +1,23 @@
+{
+  "n": 3,
+  "kind": "concept",
+  "kind_label": "概念",
+  "title": "什麼是 agent？",
+  "bullets": [
+    {
+      "text": "Agent 是以 LLM 為核心，能自己決定流程與工具使用的系統。",
+      "cite": "wiki/sources/s01.md",
+      "quote": "Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks."
+    },
+    {
+      "text": "有些人把 agent 當成長時間獨立運作的完全自主系統。",
+      "cite": "wiki/concepts/c01-what-is-an-agent.md",
+      "quote": "Some customers define agents as fully autonomous systems that operate independently over extended periods, using various tools to accomplish complex tasks."
+    },
+    {
+      "text": "Workflow 由程式先寫好路徑，agent 則由 LLM 自己決定下一步。",
+      "cite": "wiki/sources/s01.md",
+      "quote": "Workflows are systems where LLMs and tools are orchestrated through predefined code paths."
+    }
+  ]
+}

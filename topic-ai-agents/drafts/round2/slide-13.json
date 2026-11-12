@@ -1,0 +1,23 @@
+{
+  "n": 13,
+  "kind": "misconception",
+  "kind_label": "誤解",
+  "title": "誤解三：agent 越複雜越好？",
+  "bullets": [
+    {
+      "text": "誤解三：agent 的流程越多、系統越複雜，就一定越強。",
+      "cite": "wiki/misconceptions/m03-more-complexity-is-better.md",
+      "quote": "When building applications with LLMs, we recommend finding the simplest solution possible, and only increasing complexity when needed."
+    },
+    {
+      "text": "對許多應用，單次 LLM 呼叫加上檢索與範例通常就夠用。",
+      "cite": "wiki/sources/s01.md",
+      "quote": "For many applications, however, optimizing single LLM calls with retrieval and in-context examples is usually enough."
+    },
+    {
+      "text": "成功不在於做出最精密的系統，而在於做出適合需求的系統。",
+      "cite": "wiki/misconceptions/m03-more-complexity-is-better.md",
+      "quote": "Success in the LLM space isn't about building the most sophisticated system. It's about building the right system for your needs."
+    }
+  ]
+}
