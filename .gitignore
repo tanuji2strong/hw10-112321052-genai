@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node / Playwright
+node_modules/
+package-lock.json
+
+# Editors
+.vscode/
+.idea/
+
+# Office temp files
+~$*.docx
