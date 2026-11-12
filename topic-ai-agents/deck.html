@@ -59,7 +59,7 @@ li::before{content:'';position:absolute;left:0;top:.62em;width:.5em;height:.5em;
 <ul>
 <li>LLM 是 agent 的大腦，再加上規劃、記憶與工具使用三個元件。<span class="quote">&ldquo;In a LLM-powered autonomous agent system, LLM functions as the agent’s brain, complemented by several key components:&rdquo;</span><a class="src" href="../wiki/sources/s03.md">s03</a></li>
 <li>三個元件中的工具使用，讓 agent 能呼叫外部 API 取得缺少的資訊。<span class="quote">&ldquo;The agent learns to call external APIs for extra information that is missing from the model weights&rdquo;</span><a class="src" href="../wiki/sources/s03.md">s03</a></li>
-<li>這些能力合稱為增強型 LLM（augmented LLM），是 agent 系統的基本積木。<span class="quote">&ldquo;The basic building block of agentic systems is an LLM enhanced with augmentations such as retrieval, tools, and memory.&rdquo;</span><a class="src" href="../wiki/concepts/c02-augmented-llm.md">c02-augmented-llm</a></li>
+<li>檢索、工具與記憶等增強能力，合稱為增強型 LLM（augmented LLM）。<span class="quote">&ldquo;The basic building block of agentic systems is an LLM enhanced with augmentations such as retrieval, tools, and memory.&rdquo;</span><a class="src" href="../wiki/concepts/c02-augmented-llm.md">c02-augmented-llm</a></li>
 </ul>
 <div class="pagenum">4 / 14</div>
 </section>
@@ -79,7 +79,7 @@ li::before{content:'';position:absolute;left:0;top:.62em;width:.5em;height:.5em;
 <ul>
 <li>模型自己不執行任何東西，它只發出結構化的請求。<span class="quote">&ldquo;The model never runs anything on its own.&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
 <li>工具由應用程式（或 Anthropic 的伺服器）執行，結果再回到對話中。<span class="quote">&ldquo;It emits a structured request, your code (or Anthropic’s servers) runs the operation, and the result flows back into the conversation.&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
-<li>Claude 決定何時、如何呼叫工具；它只看得到工具定義（schema）與回傳結果，看不到你的程式碼。<span class="quote">&ldquo;Claude never receives your implementation; it only receives the schema you provided and the result you returned.&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
+<li>Claude 決定何時、如何呼叫工具；使用者自訂工具時，它只看得到工具定義（schema）與回傳結果。<span class="quote">&ldquo;Claude never receives your implementation; it only receives the schema you provided and the result you returned.&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
 </ul>
 <div class="pagenum">6 / 14</div>
 </section>
@@ -88,7 +88,7 @@ li::before{content:'';position:absolute;left:0;top:.62em;width:.5em;height:.5em;
 <h2>工具使用循環：一來一往直到完成</h2>
 <ul>
 <li>模型要求工具、程式執行、結果送回，然後模型再繼續。<span class="quote">&ldquo;Make a second request to the model with the tool output&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
-<li>程式持續執行工具並把結果送回 Claude，直到 stop_reason 不再是 tool_use。<span class="quote">&ldquo;keeps running tools and feeding results back until&rdquo;</span><a class="src" href="../wiki/sources/s07.md">s07</a></li>
+<li>程式持續執行工具並把結果送回 Claude，直到停止原因（stop_reason）不再是 tool_use。<span class="quote">&ldquo;keeps running tools and feeding results back until&rdquo;</span><a class="src" href="../wiki/sources/s07.md">s07</a></li>
 <li>多步驟任務需要迴圈：Claude 可能先建立活動、讀取確認，再建立另一個。<span class="quote">&ldquo;Ring 1 assumed Claude would call the tool exactly once. Real tasks often need several calls: Claude might create an event, read the confirmation, then create another.&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
 </ul>
 <div class="pagenum">7 / 14</div>
@@ -98,7 +98,7 @@ li::before{content:'';position:absolute;left:0;top:.62em;width:.5em;height:.5em;
 <h2>範例：行事曆 agent 怎麼工作</h2>
 <ul>
 <li>使用者請求：安排一場 30 分鐘的同步會議，邀請 alice 與 bob。<span class="quote">&ldquo;Schedule a 30-minute sync with alice@example.com and bob@example.com on Monday, March 30, 2026 at 10am.&rdquo;</span><a class="src" href="../wiki/examples/calendar-agent-loop.md">calendar-agent-loop</a></li>
-<li>模型判斷需要工具，回傳 stop_reason 為 tool_use 的回應。<span class="quote">&ldquo;When Claude determines that a tool call is needed, the response comes back with&rdquo;</span><a class="src" href="../wiki/examples/calendar-agent-loop.md">calendar-agent-loop</a></li>
+<li>模型判斷需要工具，回傳停止原因（stop_reason）為 tool_use 的回應。<span class="quote">&ldquo;When Claude determines that a tool call is needed, the response comes back with&rdquo;</span><a class="src" href="../wiki/examples/calendar-agent-loop.md">calendar-agent-loop</a></li>
 <li>每週站會的例子需要多次建立行程，因此需要迴圈。<span class="quote">&ldquo;Schedule a weekly team standup every Monday at 9am for the next 4 weeks, starting Monday, March 30, 2026. Invite the whole team: alice@example.com, bob@example.com, carol@example.com.&rdquo;</span><a class="src" href="../wiki/examples/calendar-agent-loop.md">calendar-agent-loop</a></li>
 <li>這是教學文件的示範，不是一次實際執行的紀錄。<a class="src" href="../wiki/examples/calendar-agent-loop.md">calendar-agent-loop</a></li>
 </ul>
@@ -120,7 +120,7 @@ li::before{content:'';position:absolute;left:0;top:.62em;width:.5em;height:.5em;
 <ul>
 <li>作者認為，上下文中的 in-context learning 可以視為短期記憶。<span class="quote">&ldquo;Short-term memory: I would consider all the in-context learning (See Prompt Engineering) as utilizing short-term memory of the model to learn.&rdquo;</span><a class="src" href="../wiki/concepts/c06-memory.md">c06-memory</a></li>
 <li>短期記憶受上下文視窗長度限制，因此很有限。<span class="quote">&ldquo;It is short and finite, as it is restricted by the finite context window length of Transformer.&rdquo;</span><a class="src" href="../wiki/concepts/c06-memory.md">c06-memory</a></li>
-<li>長期記憶是外部向量資料庫，需要時用快速檢索取回。<span class="quote">&ldquo;Long-term memory: This provides the agent with the capability to retain and recall (infinite) information over extended periods, often by leveraging an external vector store and fast retrieval.&rdquo;</span><a class="src" href="../wiki/concepts/c06-memory.md">c06-memory</a></li>
+<li>長期記憶通常是外部向量資料庫，需要時用快速檢索取回。<span class="quote">&ldquo;Long-term memory: This provides the agent with the capability to retain and recall (infinite) information over extended periods, often by leveraging an external vector store and fast retrieval.&rdquo;</span><a class="src" href="../wiki/concepts/c06-memory.md">c06-memory</a></li>
 </ul>
 <div class="pagenum">10 / 14</div>
 </section>
@@ -129,7 +129,7 @@ li::before{content:'';position:absolute;left:0;top:.62em;width:.5em;height:.5em;
 <h2>ReAct：推理與行動交錯</h2>
 <ul>
 <li>ReAct 讓 LLM 以交錯的方式，同時產生推理與行動。<span class="quote">&ldquo;we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner&rdquo;</span><a class="src" href="../wiki/concepts/c07-react.md">c07-react</a></li>
-<li>推理幫助模型規劃與追蹤，行動則讓它取得外部資訊。<span class="quote">&ldquo;while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information.&rdquo;</span><a class="src" href="../wiki/concepts/c07-react.md">c07-react</a></li>
+<li>ReAct 讓 LLM 以交錯的方式產生推理與行動。<span class="quote">&ldquo;we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner&rdquo;</span><a class="src" href="../wiki/concepts/c07-react.md">c07-react</a></li>
 <li>這種交錯的做法已成為 agent 的常見模式。<span class="quote">&ldquo;First proposed by ReAct (Yao et al., 2022), interleaving reasoning and action has become a common pattern for agents.&rdquo;</span><a class="src" href="../wiki/concepts/c07-react.md">c07-react</a></li>
 </ul>
 <div class="pagenum">11 / 14</div>

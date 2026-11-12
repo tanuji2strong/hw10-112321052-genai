@@ -1,0 +1,23 @@
+{
+  "n": 7,
+  "kind": "concept",
+  "kind_label": "概念",
+  "title": "工具使用循環：一來一往直到完成",
+  "bullets": [
+    {
+      "text": "模型要求工具、程式執行、結果送回，然後模型再繼續。",
+      "cite": "wiki/concepts/c04-tool-use-loop.md",
+      "quote": "Make a second request to the model with the tool output"
+    },
+    {
+      "text": "程式持續執行工具並把結果送回 Claude，直到停止原因（stop_reason）不再是 tool_use。",
+      "cite": "wiki/sources/s07.md",
+      "quote": "keeps running tools and feeding results back until"
+    },
+    {
+      "text": "多步驟任務需要迴圈：Claude 可能先建立活動、讀取確認，再建立另一個。",
+      "cite": "wiki/concepts/c04-tool-use-loop.md",
+      "quote": "Ring 1 assumed Claude would call the tool exactly once. Real tasks often need several calls: Claude might create an event, read the confirmation, then create another."
+    }
+  ]
+}

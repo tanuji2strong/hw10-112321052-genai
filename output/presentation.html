@@ -1,162 +1,190 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI Agents 入門教學簡報</title>
 <style>
+:root{--ink:#1e293b;--muted:#475569;--brand:#0f4c81;--accent:#2f6fb2;--ok:#2e9e6b;--warn:#d0554a;--bg:#f7f9fc;--card:#ffffff;--chip:#eef4fa}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Noto Sans TC','PingFang TC',sans-serif;background:#f7f9fc;color:#1e293b}
-.slide{display:none;width:100vw;min-height:100vh;padding:6vh 9vw;background:#fff;box-shadow:0 0 30px rgba(0,0,0,.06);position:relative}
-.slide.active{display:flex;flex-direction:column;justify-content:center;gap:3vh}
-h1{font-size:3.2rem;color:#0f4c81}h2{font-size:2.3rem;color:#0f4c81;margin-top:1vh}
-.cover{align-items:center;text-align:center;background:linear-gradient(135deg,#eaf3fb,#f7f9fc)}
-.sub{font-size:1.5rem;color:#475569}.small{font-size:1.1rem}
-ul{list-style:none;font-size:1.45rem;line-height:1.9}
-li{margin-bottom:2.2vh;padding-left:1.6em;position:relative}
-li::before{content:'●';position:absolute;left:0;font-size:.7em;top:.45em}
-.accent-blue li::before{color:#2f6fb2}.accent-green li::before{color:#2e9e6b}.accent-red li::before{color:#d0554a}
-.summary li::before{color:#8a5cc9}
-.src{font-size:.78rem;color:#94a3b8;background:#f1f5f9;padding:.15em .6em;border-radius:1em;white-space:nowrap}
-.badge{position:absolute;top:4vh;right:6vw;font-size:.95rem;padding:.4em 1.2em;border-radius:2em;background:#eef4fa;color:#0f4c81}
-.pagenum{position:absolute;bottom:3vh;right:5vw;color:#cbd5e1;font-size:1rem}
-.nav{position:fixed;bottom:3vh;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:9}
-.nav button{font-size:1.1rem;padding:.5em 1.4em;border:none;border-radius:2em;background:#0f4c81;color:#fff;cursor:pointer}
-.nav button:hover{background:#2f6fb2}
+html,body{height:100%}
+body{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;background:var(--bg);color:var(--ink)}
+.slide{display:none;height:100vh;padding:7vh 8vw 9vh;background:var(--card);flex-direction:column;justify-content:center;gap:3vh;overflow:hidden;position:relative}
+.slide.active{display:flex}
+.kind{position:absolute;top:4vh;right:6vw;font-size:1rem;padding:.35em 1.1em;border-radius:2em;background:var(--chip);color:var(--brand)}
+h1{font-size:3.2rem;color:var(--brand);line-height:1.25}
+h2{font-size:2.4rem;color:var(--brand);line-height:1.25}
+ul{list-style:none}
+li{font-size:1.6rem;line-height:1.7;margin-bottom:1.6vh;padding-left:1.4em;position:relative}
+li::before{content:'';position:absolute;left:0;top:.62em;width:.5em;height:.5em;border-radius:50%;background:var(--accent)}
+.quote{display:block;margin-top:.3em;font-size:1.05rem;color:var(--muted);font-style:italic}
+.src{display:inline-block;margin-left:.4em;font-size:.85rem;padding:.1em .7em;border-radius:1em;background:var(--chip);color:var(--brand);text-decoration:none;white-space:nowrap}
+.src:hover{background:#dbe8f5}
+.sub{font-size:1.4rem;color:var(--muted)}
+.pagenum{position:absolute;bottom:3vh;right:5vw;color:#94a3b8;font-size:1rem}
+.nav{position:fixed;bottom:2.5vh;left:6vw;font-size:.95rem;color:#94a3b8}
+.cover{text-align:center;align-items:center;background:linear-gradient(135deg,#eaf3fb,#f7f9fc)}
 </style>
 </head>
 <body>
-<section class="slide cover">
-  <h1>AI Agents：給零基礎初學者的入門課</h1>
-  <p class="sub">副標：從聊天機器人到會自己做事的 AI</p>
-  <p class="sub small">素材來源：5 篇原始文件 + 26 頁 Wiki</p>
+<section class="slide cover" id="s1" data-slide="1">
+<span class="kind">開場</span>
+<h1>AI Agents：給零基礎初學者的入門課</h1>
+<p class="sub">從聊天機器人到會自己做事的 AI</p>
+<div class="pagenum">1 / 14</div>
 </section>
-<section class="slide accent-blue">
-  <span class="badge">概念</span>
-  <h2>什麼是 AI Agent？</h2>
-  <ul>
-      <li>完全沒有。 AI Agent 的底層仍然是大型語言模型 (LLM)，它本質上是一個超級強大的「文字接龍」機器。它的思考 (Reason) 只是在預測接下來應 <span class="src">[來源: 05_challenges.md, 「初學者常見的兩大誤解」1]</span></li>
-      <li>它沒有意識，只是模式匹配＋工具 <span class="src">[來源: wiki 綜合整理]</span></li>
-      <li>AI Agent（人工智慧代理） 是比 Chatbot 更進階的形態：如果說 Chatbot 是一個「很會聊天的百科全書」，那麼 AI Agent 就是一位 <span class="src">[來源: 01_intro.md, 「什麼是 AI Agent？」]</span></li>
-  </ul>
-  <div class="pagenum">2/13</div>
+<section class="slide" id="s2" data-slide="2">
+<span class="kind">開場</span>
+<h2>從聊天到會做事：為什麼需要 agent？</h2>
+<ul>
+<li>新的基礎模型能力，讓開發者有機會做出能替我們辦事的自主 agent。<span class="quote">&ldquo;These new capabilities make it finally possible to develop autonomous, intelligent agents to act as our assistants, coworkers, and coaches.&rdquo;</span><a class="src" href="../wiki/sources/s06.md">s06</a></li>
+<li>Agent 由 LLM 自己決定流程與工具使用。<span class="quote">&ldquo;Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.&rdquo;</span><a class="src" href="../wiki/concepts/c01-what-is-an-agent.md">c01-what-is-an-agent</a></li>
+<li>沒有外部工具也能算是 agent，但能力會受限。<span class="quote">&ldquo;A system doesn’t need access to external tools to be an agent. However, without external tools, the agent’s capabilities would be limited.&rdquo;</span><a class="src" href="../wiki/concepts/c01-what-is-an-agent.md">c01-what-is-an-agent</a></li>
+</ul>
+<div class="pagenum">2 / 14</div>
 </section>
-<section class="slide accent-blue">
-  <span class="badge">概念</span>
-  <h2>先懂 Token：AI 的計費單位</h2>
-  <ul>
-      <li>Token（詞元） 是 LLM 閱讀與產生文字的基本單位。模型不是以「字」或「詞」處理文字，而是把文字切成 token 再運算。 <span class="src">[補充: 非原始資料]</span></li>
-      <li>- 英文：一個 token 大約等於 3/4 個單詞。例如 &quot;intelligence&quot; 可能被切成 &quot;in&quot; + <span class="src">[補充: 非原始資料]</span></li>
-      <li>- 中文：一個中文字通常約等於 1～2 個 token。 <span class="src">[補充: 非原始資料]</span></li>
-  </ul>
-  <div class="pagenum">3/13</div>
+<section class="slide" id="s3" data-slide="3">
+<span class="kind">概念</span>
+<h2>什麼是 agent？</h2>
+<ul>
+<li>Agent 以 LLM 為核心，LLM 就像它的大腦。<span class="quote">&ldquo;In a LLM-powered autonomous agent system, LLM functions as the agent’s brain, complemented by several key components:&rdquo;</span><a class="src" href="../wiki/concepts/c01-what-is-an-agent.md">c01-what-is-an-agent</a></li>
+<li>有些人把 agent 當成長時間獨立運作的完全自主系統。<span class="quote">&ldquo;Some customers define agents as fully autonomous systems that operate independently over extended periods, using various tools to accomplish complex tasks.&rdquo;</span><a class="src" href="../wiki/concepts/c01-what-is-an-agent.md">c01-what-is-an-agent</a></li>
+<li>Workflow 由程式先寫好路徑，agent 則由 LLM 自己決定下一步。<span class="quote">&ldquo;Workflows are systems where LLMs and tools are orchestrated through predefined code paths.&rdquo;</span><a class="src" href="../wiki/sources/s01.md">s01</a></li>
+</ul>
+<div class="pagenum">3 / 14</div>
 </section>
-<section class="slide accent-green">
-  <span class="badge">原理</span>
-  <h2>Context Window：AI 的工作桌面</h2>
-  <ul>
-      <li>桌面比喻：越大同時能摊开的資料越多 <span class="src">[來源: wiki 綜合整理]</span></li>
-      <li>當你在跟 Agent 對話時，系統會把你剛剛說過的每一句話都記錄下來，並在每一次你發送新訊息時，把「過去的對話紀錄 + 你的新問題」整包丟給 LLM 重新閱 <span class="src">[來源: 04_memory.md, 「短期記憶」運作原理]</span></li>
-      <li>短期記憶就像是大腦中的「工作記憶」或電腦的「記憶體 (RAM)」。 <span class="src">[來源: 04_memory.md, 「短期記憶」]</span></li>
-  </ul>
-  <div class="pagenum">4/13</div>
+<section class="slide" id="s4" data-slide="4">
+<span class="kind">概念</span>
+<h2>LLM 是核心，再加上三個元件</h2>
+<ul>
+<li>LLM 是 agent 的大腦，再加上規劃、記憶與工具使用三個元件。<span class="quote">&ldquo;In a LLM-powered autonomous agent system, LLM functions as the agent’s brain, complemented by several key components:&rdquo;</span><a class="src" href="../wiki/sources/s03.md">s03</a></li>
+<li>三個元件中的工具使用，讓 agent 能呼叫外部 API 取得缺少的資訊。<span class="quote">&ldquo;The agent learns to call external APIs for extra information that is missing from the model weights&rdquo;</span><a class="src" href="../wiki/sources/s03.md">s03</a></li>
+<li>檢索、工具與記憶等增強能力，合稱為增強型 LLM（augmented LLM）。<span class="quote">&ldquo;The basic building block of agentic systems is an LLM enhanced with augmentations such as retrieval, tools, and memory.&rdquo;</span><a class="src" href="../wiki/concepts/c02-augmented-llm.md">c02-augmented-llm</a></li>
+</ul>
+<div class="pagenum">4 / 14</div>
 </section>
-<section class="slide accent-green">
-  <span class="badge">原理</span>
-  <h2>ReAct 迴圈：Agent 的心跳</h2>
-  <ul>
-      <li>1. 感知與觀察 (Observation)：Agent 先了解目前的環境與狀態。例如收到使用者的指令、或是看到上一個步驟執行失敗的錯誤訊息。 <span class="src">[來源: 01_intro.md, 「核心運作迴圈」步驟 1]</span></li>
-      <li>用買咖啡例子走一遍 <span class="src">[來源: wiki 綜合整理]</span></li>
-      <li>AI Agent 之所以具備行動力，是因為擁有核心運作機制。業界最著名的一種設計框架稱為 ReAct (Reason + Act)，也就是「推理」加上「行動」。 <span class="src">[來源: 01_intro.md, 「核心運作迴圈：ReAct 框架」]</span></li>
-  </ul>
-  <div class="pagenum">5/13</div>
+<section class="slide" id="s5" data-slide="5">
+<span class="kind">概念</span>
+<h2>workflow 與 agent 的差別</h2>
+<ul>
+<li>Workflow 是預先寫好程式路徑，LLM 與工具照順序被編排。<span class="quote">&ldquo;Workflows are systems where LLMs and tools are orchestrated through predefined code paths.&rdquo;</span><a class="src" href="../wiki/concepts/c03-workflow-vs-agent.md">c03-workflow-vs-agent</a></li>
+<li>Agent 則是 LLM 動態決定自己的流程與工具使用。<span class="quote">&ldquo;Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.&rdquo;</span><a class="src" href="../wiki/concepts/c03-workflow-vs-agent.md">c03-workflow-vs-agent</a></li>
+<li>定義清楚的任務適合 workflow，需要彈性時才適合 agent。<span class="quote">&ldquo;When more complexity is warranted, workflows offer predictability and consistency for well-defined tasks, whereas agents are the better option when flexibility and model-driven decision-making are needed at scale.&rdquo;</span><a class="src" href="../wiki/concepts/c03-workflow-vs-agent.md">c03-workflow-vs-agent</a></li>
+</ul>
+<div class="pagenum">5 / 14</div>
 </section>
-<section class="slide accent-blue">
-  <span class="badge">概念</span>
-  <h2>Tool Use：讓 AI 動手做事</h2>
-  <ul>
-      <li>工具使用 (Tool Use) 是為了突破 LLM 先天限制，給「被關在房間裡的智者」一些工具（例如：一支電話、一台電腦）的做法。 <span class="src">[來源: 02_tools.md, 「為什麼 LLM 需要工具？」]</span></li>
-      <li>透過 Function Calling，AI Agent 長出了手和腳，擁有了與真實世界互動的能力。 <span class="src">[來源: 02_tools.md, 結尾段落]</span></li>
-      <li>1. 知識截止日 (Knowledge Cutoff)：LLM 的知識停留在它被訓練的那一天。問它「今天台北的股價指數是多少？」，沒有聯網能力的 LLM 絕對無法正確回答。 <span class="src">[來源: 02_tools.md, 「為什麼 LLM 需要工具？」限制 1]</span></li>
-  </ul>
-  <div class="pagenum">6/13</div>
+<section class="slide" id="s6" data-slide="6">
+<span class="kind">概念</span>
+<h2>工具使用：模型請求，程式執行</h2>
+<ul>
+<li>模型自己不執行任何東西，它只發出結構化的請求。<span class="quote">&ldquo;The model never runs anything on its own.&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
+<li>工具由應用程式（或 Anthropic 的伺服器）執行，結果再回到對話中。<span class="quote">&ldquo;It emits a structured request, your code (or Anthropic’s servers) runs the operation, and the result flows back into the conversation.&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
+<li>Claude 決定何時、如何呼叫工具；使用者自訂工具時，它只看得到工具定義（schema）與回傳結果。<span class="quote">&ldquo;Claude never receives your implementation; it only receives the schema you provided and the result you returned.&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
+</ul>
+<div class="pagenum">6 / 14</div>
 </section>
-<section class="slide accent-green">
-  <span class="badge">原理</span>
-  <h2>Planning：把大任務拆小</h2>
-  <ul>
-      <li>Chain-of-Thought：一步一步想 <span class="src">[來源: wiki 綜合整理]</span></li>
-      <li>Tree-of-Thoughts：多條路探索＋反思 <span class="src">[來源: wiki 綜合整理]</span></li>
-      <li>京都四日遊規劃實例 <span class="src">[來源: wiki 綜合整理]</span></li>
-  </ul>
-  <div class="pagenum">7/13</div>
+<section class="slide" id="s7" data-slide="7">
+<span class="kind">概念</span>
+<h2>工具使用循環：一來一往直到完成</h2>
+<ul>
+<li>模型要求工具、程式執行、結果送回，然後模型再繼續。<span class="quote">&ldquo;Make a second request to the model with the tool output&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
+<li>程式持續執行工具並把結果送回 Claude，直到停止原因（stop_reason）不再是 tool_use。<span class="quote">&ldquo;keeps running tools and feeding results back until&rdquo;</span><a class="src" href="../wiki/sources/s07.md">s07</a></li>
+<li>多步驟任務需要迴圈：Claude 可能先建立活動、讀取確認，再建立另一個。<span class="quote">&ldquo;Ring 1 assumed Claude would call the tool exactly once. Real tasks often need several calls: Claude might create an event, read the confirmation, then create another.&rdquo;</span><a class="src" href="../wiki/concepts/c04-tool-use-loop.md">c04-tool-use-loop</a></li>
+</ul>
+<div class="pagenum">7 / 14</div>
 </section>
-<section class="slide accent-green">
-  <span class="badge">原理</span>
-  <h2>Reflection：自我檢討的魔力</h2>
-  <ul>
-      <li>2. 生成 (Generation)：回覆「沒問題！我來幫小白（狗狗）找一間寵物蛋糕店，而且會特別交代店家絕對不能沾到花生！」 <span class="src">[來源: 04_memory.md, 「長期記憶」提取記憶]</span></li>
-      <li>狗狗生日蛋糕：失敗後如何修正 <span class="src">[來源: wiki 綜合整理]</span></li>
-      <li>人類在做事遇到挫折時會停下來檢討，AI Agent 也具備這樣的能力，稱為 反思 (Reflection) 或自我修正。 <span class="src">[來源: 03_planning.md, 「卡關時的『反思』機制」]</span></li>
-  </ul>
-  <div class="pagenum">8/13</div>
+<section class="slide" id="s8" data-slide="8">
+<span class="kind">範例</span>
+<h2>範例：行事曆 agent 怎麼工作</h2>
+<ul>
+<li>使用者請求：安排一場 30 分鐘的同步會議，邀請 alice 與 bob。<span class="quote">&ldquo;Schedule a 30-minute sync with alice@example.com and bob@example.com on Monday, March 30, 2026 at 10am.&rdquo;</span><a class="src" href="../wiki/examples/calendar-agent-loop.md">calendar-agent-loop</a></li>
+<li>模型判斷需要工具，回傳停止原因（stop_reason）為 tool_use 的回應。<span class="quote">&ldquo;When Claude determines that a tool call is needed, the response comes back with&rdquo;</span><a class="src" href="../wiki/examples/calendar-agent-loop.md">calendar-agent-loop</a></li>
+<li>每週站會的例子需要多次建立行程，因此需要迴圈。<span class="quote">&ldquo;Schedule a weekly team standup every Monday at 9am for the next 4 weeks, starting Monday, March 30, 2026. Invite the whole team: alice@example.com, bob@example.com, carol@example.com.&rdquo;</span><a class="src" href="../wiki/examples/calendar-agent-loop.md">calendar-agent-loop</a></li>
+<li>這是教學文件的示範，不是一次實際執行的紀錄。<a class="src" href="../wiki/examples/calendar-agent-loop.md">calendar-agent-loop</a></li>
+</ul>
+<div class="pagenum">8 / 14</div>
 </section>
-<section class="slide accent-blue">
-  <span class="badge">概念</span>
-  <h2>Memory 與 RAG：Agent 的長期記憶</h2>
-  <ul>
-      <li>為了提供連貫、個人化的服務，Agent 必須擁有 記憶機制 (Memory)，通常分為「短期記憶」與「長期記憶」。 <span class="src">[來源: 04_memory.md, 開頭段落]</span></li>
-      <li>想像你聘請了一位非常聰明的新助理，但他患有嚴重的失憶症，只要你離開辦公室五分鐘，他就會忘記你剛才交代過的所有事情——這樣的助理顯然不合格。AI Agent 也是一樣。 <span class="src">[來源: 04_memory.md, 開頭段落]</span></li>
-  </ul>
-  <div class="pagenum">9/13</div>
+<section class="slide" id="s9" data-slide="9">
+<span class="kind">概念</span>
+<h2>規劃：拆解任務，並從錯誤中反思</h2>
+<ul>
+<li>規劃包含把大任務拆成子目標，讓複雜任務可以處理。<span class="quote">&ldquo;Subgoal and decomposition: The agent breaks down large tasks into smaller, manageable subgoals, enabling efficient handling of complex tasks.&rdquo;</span><a class="src" href="../wiki/concepts/c05-planning.md">c05-planning</a></li>
+<li>反思讓 agent 從過去的行動中學習，改進之後的步驟。<span class="quote">&ldquo;Reflection and refinement: The agent can do self-criticism and self-reflection over past actions, learn from mistakes and refine them for future steps, thereby improving the quality of final results.&rdquo;</span><a class="src" href="../wiki/concepts/c05-planning.md">c05-planning</a></li>
+<li>規劃與執行應該分開：先產生計畫，計畫通過驗證後才執行。<span class="quote">&ldquo;To avoid fruitless execution, planning should be decoupled from execution. You ask the agent to first generate a plan, and only after this plan is validated is it executed.&rdquo;</span><a class="src" href="../wiki/concepts/c05-planning.md">c05-planning</a></li>
+</ul>
+<div class="pagenum">9 / 14</div>
 </section>
-<section class="slide accent-blue">
-  <span class="badge">概念</span>
-  <h2>Multi-Agent：一群 Agent 協作</h2>
-  <ul>
-      <li>多代理系統 (Multi-Agent System) 是指讓多個各有分工的 AI Agent 協同工作完成一個大任務的架構。每個 agent 有自己的角色、 <span class="src">[補充: 非原始資料]</span></li>
-      <li>想像一家小型廣告公司接到「幫客戶做產品發表會」的委託 ： <span class="src">[補充: 非原始資料]</span></li>
-      <li>- 企劃 Agent：把大目標拆成子任務 → 對應 concepts/planning 的拆解能力<span class="src"></span></li>
-  </ul>
-  <div class="pagenum">10/13</div>
+<section class="slide" id="s10" data-slide="10">
+<span class="kind">概念</span>
+<h2>記憶：短期記憶與長期記憶</h2>
+<ul>
+<li>作者認為，上下文中的 in-context learning 可以視為短期記憶。<span class="quote">&ldquo;Short-term memory: I would consider all the in-context learning (See Prompt Engineering) as utilizing short-term memory of the model to learn.&rdquo;</span><a class="src" href="../wiki/concepts/c06-memory.md">c06-memory</a></li>
+<li>短期記憶受上下文視窗長度限制，因此很有限。<span class="quote">&ldquo;It is short and finite, as it is restricted by the finite context window length of Transformer.&rdquo;</span><a class="src" href="../wiki/concepts/c06-memory.md">c06-memory</a></li>
+<li>長期記憶通常是外部向量資料庫，需要時用快速檢索取回。<span class="quote">&ldquo;Long-term memory: This provides the agent with the capability to retain and recall (infinite) information over extended periods, often by leveraging an external vector store and fast retrieval.&rdquo;</span><a class="src" href="../wiki/concepts/c06-memory.md">c06-memory</a></li>
+</ul>
+<div class="pagenum">10 / 14</div>
 </section>
-<section class="slide accent-red">
-  <span class="badge">誤解破解</span>
-  <h2>常見誤解大破解</h2>
-  <ul>
-      <li>1. 知識截止日 (Knowledge Cutoff)：LLM 的知識停留在它被訓練的那一天，沒有聯網能力的 LLM 絕對無法正確回答即時問題。 <span class="src">[來源: 02_tools.md, 「為什麼 LLM 需要工具？」限制 1]</span></li>
-      <li>這是 LLM 最著名的問題。有時候，當 Agent 找不到真實資料，或者推理過程出了差錯，它會 「一本正經地胡說八道」。 <span class="src">[來源: 05_challenges.md, 「核心挑戰」1. 幻覺]</span></li>
-      <li>全自主＝迷思：錯誤會複利放大 <span class="src">[來源: wiki 綜合整理]</span></li>
-  </ul>
-  <div class="pagenum">11/13</div>
+<section class="slide" id="s11" data-slide="11">
+<span class="kind">概念</span>
+<h2>ReAct：推理與行動交錯</h2>
+<ul>
+<li>ReAct 讓 LLM 以交錯的方式，同時產生推理與行動。<span class="quote">&ldquo;we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner&rdquo;</span><a class="src" href="../wiki/concepts/c07-react.md">c07-react</a></li>
+<li>ReAct 讓 LLM 以交錯的方式產生推理與行動。<span class="quote">&ldquo;we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner&rdquo;</span><a class="src" href="../wiki/concepts/c07-react.md">c07-react</a></li>
+<li>這種交錯的做法已成為 agent 的常見模式。<span class="quote">&ldquo;First proposed by ReAct (Yao et al., 2022), interleaving reasoning and action has become a common pattern for agents.&rdquo;</span><a class="src" href="../wiki/concepts/c07-react.md">c07-react</a></li>
+</ul>
+<div class="pagenum">11 / 14</div>
 </section>
-<section class="slide accent-green">
-  <span class="badge">原理</span>
-  <h2>挑戰與安全：Human-in-the-Loop</h2>
-  <ul>
-      <li>為什麼重要操作要人確認 <span class="src">[來源: wiki 綜合整理]</span></li>
-      <li>HITL = 關鍵步驟踩煞車 <span class="src">[來源: wiki 綜合整理]</span></li>
-      <li>為了解決幻覺與錯誤累積等問題，目前業界在設計 Agent 系統時，都會強調 Human-in-the-loop (人機協作 / 人類在迴圈中) 的概念。 <span class="src">[來源: 05_challenges.md, 「核心挑戰」3. HITL]</span></li>
-  </ul>
-  <div class="pagenum">12/13</div>
+<section class="slide" id="s12" data-slide="12">
+<span class="kind">誤解</span>
+<h2>誤解一與二：完全自主？錯誤會累積？</h2>
+<ul>
+<li>誤解一：agent 是完全自主、不需要人參與的。其實 agent 常從人的指令或討論開始。<span class="quote">&ldquo;Agents begin their work with either a command from, or interactive discussion with, the human user.&rdquo;</span><a class="src" href="../wiki/misconceptions/m01-agents-are-fully-autonomous.md">m01-agents-are-fully-autonomous</a></li>
+<li>誤解二：每一步都對，最後結果就一定對。步驟越多，錯誤越會累積。<span class="quote">&ldquo;Compound mistakes: an agent often needs to perform multiple steps to accomplish a task, and the overall accuracy decreases as the number of steps increases.&rdquo;</span><a class="src" href="../wiki/misconceptions/m02-errors-compound.md">m02-errors-compound</a></li>
+<li>每一步 95% 的準確率，十步後整體會降到 60%。<span class="quote">&ldquo;If the model’s accuracy is 95% per step, over 10 steps, the accuracy will drop to 60%, and over 100 steps, the accuracy will be only 0.6%.&rdquo;</span><a class="src" href="../wiki/misconceptions/m02-errors-compound.md">m02-errors-compound</a></li>
+</ul>
+<div class="pagenum">12 / 14</div>
 </section>
-<section class="slide summary">
-  <h2>總結：Agent = LLM 大腦 + 工具手脚 + 記憶 + 規劃</h2>
-  <ul>
-      <li>一句話複習四大元件<span class="src"></span></li>
-      <li>下一步學習建議<span class="src"></span></li>
-  </ul>
-  <div class="pagenum">13/13</div>
+<section class="slide" id="s13" data-slide="13">
+<span class="kind">誤解</span>
+<h2>誤解三：agent 越複雜越好？</h2>
+<ul>
+<li>誤解三：agent 的流程越多、系統越複雜，就一定越強。<span class="quote">&ldquo;When building applications with LLMs, we recommend finding the simplest solution possible, and only increasing complexity when needed.&rdquo;</span><a class="src" href="../wiki/misconceptions/m03-more-complexity-is-better.md">m03-more-complexity-is-better</a></li>
+<li>對許多應用，單次 LLM 呼叫加上檢索與範例通常就夠用。<span class="quote">&ldquo;For many applications, however, optimizing single LLM calls with retrieval and in-context examples is usually enough.&rdquo;</span><a class="src" href="../wiki/sources/s01.md">s01</a></li>
+<li>成功不在於做出最精密的系統，而在於做出適合需求的系統。<span class="quote">&ldquo;Success in the LLM space isn&#x27;t about building the most sophisticated system. It&#x27;s about building the right system for your needs.&rdquo;</span><a class="src" href="../wiki/misconceptions/m03-more-complexity-is-better.md">m03-more-complexity-is-better</a></li>
+</ul>
+<div class="pagenum">13 / 14</div>
 </section>
-<div class="nav"><button id="prev">← 上一頁</button><button id="next">下一頁 →</button></div>
+<section class="slide" id="s14" data-slide="14">
+<span class="kind">總結</span>
+<h2>總結與下一步</h2>
+<ul>
+<li>Agent：以 LLM 為核心，能自己決定流程、使用工具的系統。<a class="src" href="../wiki/glossary.md">glossary</a></li>
+<li>Tool use：模型要求工具，程式執行，結果送回模型。<a class="src" href="../wiki/glossary.md">glossary</a></li>
+<li>規劃、記憶與 ReAct 分別是拆解任務、保存與取回資訊，以及交錯推理與行動的方法。<a class="src" href="../wiki/glossary.md">glossary</a></li>
+<li>Workflow 與 agent 的差別，在於誰決定流程。<span class="quote">&ldquo;Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.&rdquo;</span><a class="src" href="../wiki/concepts/c03-workflow-vs-agent.md">c03-workflow-vs-agent</a></li>
+<li>下一步：先用簡單的方法，只有不夠時才增加複雜度。<span class="quote">&ldquo;When building applications with LLMs, we recommend finding the simplest solution possible, and only increasing complexity when needed.&rdquo;</span><a class="src" href="../wiki/sources/s01.md">s01</a></li>
+</ul>
+<div class="pagenum">14 / 14</div>
+</section>
+<div class="nav">← → 切換投影片　Home / End 跳到首尾</div>
 <script>
-let cur=0;const slides=document.querySelectorAll('.slide');
-function show(i){cur=(i+slides.length)%slides.length; slides.forEach((s,j)=>s.classList.toggle('active',j===cur));}
-document.getElementById('prev').onclick=()=>show(cur-1);
-document.getElementById('next').onclick=()=>show(cur+1);
-document.addEventListener('keydown',e=>{
- if(e.key==='ArrowRight'||e.key===' ')show(cur+1);
- if(e.key==='ArrowLeft')show(cur-1);});
-show(0);
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var i=0;
+  function show(n){
+    if(n<0)n=0; if(n>slides.length-1)n=slides.length-1; i=n;
+    slides.forEach(function(s,k){s.classList.toggle('active',k===i)});
+    history.replaceState(null,'','#'+(i+1));
+  }
+  document.addEventListener('keydown',function(e){
+    if(['ArrowRight','PageDown',' ','ArrowDown'].indexOf(e.key)>=0){show(i+1);e.preventDefault();}
+    else if(['ArrowLeft','PageUp','ArrowUp'].indexOf(e.key)>=0){show(i-1);e.preventDefault();}
+    else if(e.key==='Home'){show(0);} else if(e.key==='End'){show(slides.length-1);}
+  });
+  var start=parseInt((location.hash||'#1').slice(1),10);
+  show(isNaN(start)?0:start-1);
+  window.deckSlides=slides; window.deckShow=show;
+})();
 </script>
 </body>
 </html>

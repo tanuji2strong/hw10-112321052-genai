@@ -1,0 +1,23 @@
+{
+  "n": 10,
+  "kind": "concept",
+  "kind_label": "概念",
+  "title": "記憶：短期記憶與長期記憶",
+  "bullets": [
+    {
+      "text": "作者認為，上下文中的 in-context learning 可以視為短期記憶。",
+      "cite": "wiki/concepts/c06-memory.md",
+      "quote": "Short-term memory: I would consider all the in-context learning (See Prompt Engineering) as utilizing short-term memory of the model to learn."
+    },
+    {
+      "text": "短期記憶受上下文視窗長度限制，因此很有限。",
+      "cite": "wiki/concepts/c06-memory.md",
+      "quote": "It is short and finite, as it is restricted by the finite context window length of Transformer."
+    },
+    {
+      "text": "長期記憶通常是外部向量資料庫，需要時用快速檢索取回。",
+      "cite": "wiki/concepts/c06-memory.md",
+      "quote": "Long-term memory: This provides the agent with the capability to retain and recall (infinite) information over extended periods, often by leveraging an external vector store and fast retrieval."
+    }
+  ]
+}
