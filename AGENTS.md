@@ -36,13 +36,9 @@ S01 至 S07 各自對應 raw/ 下前綴相同的檔案（例如 S03 = raw/03_*.m
 - 來源說法不同時，寫在頁面的「衝突 / 差異」段落。同時列出雙方與引文，不替任何一方選邊。
 - 只有用詞不同（例如 tool use 與 function calling）時，記為「用詞差異」，不算衝突。
 
-## Ingest 流程（一次只處理一個來源）
-1. 完整讀取 raw/ 中該來源的檔案。
-2. 建立 wiki/sources/sNN.md（摘要與引文）。
-3. 建立或更新相關的概念、誤解、範例、名詞表頁面，每個新主張都附來源與引文。
-4. 更新 wiki/index.md 的頁面清單。
-5. 在 wiki/log.md 末尾追加一筆紀錄（日期、來源代號、新增與修改的頁面、引文數）。
-6. 執行 `python3 scripts/wiki_lint.py`，修正所有錯誤直到通過。lint 報告會寫入 wiki/lint-report.md。
+## Ingest 流程
+每次 ingest 一個來源，步驟見 [.agents/workflows/ingest.md](.agents/workflows/ingest.md)。
+每次 ingest 都必須執行 `python3 scripts/wiki_lint.py` 並通過，結果寫入 wiki/lint-report.md。
 
 ## Lint 檢查項目
 - 壞連結（broken links）：所有相對連結都必須指向存在的檔案。
